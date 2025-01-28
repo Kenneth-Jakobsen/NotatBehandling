@@ -15,6 +15,26 @@ function create(){
     });
 };
 
+function read(){
+    rl.question("Enter the name of the file you want to view:", (fileName)=>{
+        fs.readFile(fileName, "utf-8",(err, data)=>{
+            if(err){
+                console.error("Error reading file: ", err);
+                rl.close();
+                return;
+            }
+            console.log("File content: ", data)
+            rl.close();
+        });
+    });
+};
+
+function update(){
+    
+}
+
+
+
 function menu(){
     console.log('1. Create a file');
     console.log('2. Read a file');
