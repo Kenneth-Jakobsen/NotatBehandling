@@ -29,8 +29,19 @@ function read(){
     });
 };
 
-function update(){
-    
+function update() {
+    rl.question("What file would you like to append? ", (fileName) => {
+        rl.question("What content would you like to append? \n ", (content) => {
+            fs.appendFile(fileName,content, (err) => {
+                if (err) {
+                    console.error("Error appending to the file:", err.message);
+                } else {
+                    console.log(`Successfully appended to ${fileName}`);
+                }
+                rl.close(); 
+            });
+        });
+    });
 }
 
 
