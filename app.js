@@ -29,6 +29,19 @@ function read(){
     });
 };
 
+function deleteFile(){
+    rl.question("Enter the name of the file you wan to delete: ", (fileName)=>{
+        fs.unlink(fileName,(err)=>{
+            if(err){
+                console.log("Error deleting file");
+                return;
+            }
+            console.log(`${fileName} has been deleted`);
+            rl.close();
+        });
+    });
+};
+
 function update() {
     rl.question("What file would you like to append? ", (fileName) => {
         rl.question("What content would you like to append? \n ", (content) => {
